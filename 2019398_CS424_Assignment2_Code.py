@@ -75,7 +75,6 @@ def build_lr1_table(grammar):
                     lr1_table[i][item.lookahead] = f"R{item.production_index}"
     return lr1_table
 
-
 def parse(lr1_table, grammar, input_string):
     stack = [0]
     input_string = input_string + ' $'
@@ -114,8 +113,6 @@ def parse(lr1_table, grammar, input_string):
         elif action_type == 'G':
             stack.append(arg)
             stack.append(lr1_table[stack[-2]][stack[-1]][1:])
-
-
 
 grammar = Grammar([
     ('E', 'T+E'),
